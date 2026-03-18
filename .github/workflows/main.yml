@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-deploy:
@@ -21,29 +23,6 @@ jobs:
       - name: Create PDF directory
         run: mkdir -p static/pdfs
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: "20"
-
-      - name: Install dependencies for headless browser
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk-3-0 libgbm-dev
-
-      - name: Install Marp CLI
-        run: npm install -g @marp-team/marp-cli
-
-      - name: Build Marp Slides (Engenharia de Software)
-        run: marp content/cursos/engenharia-software/slides/index.md --pdf --output static/pdfs/eng-software.pdf --allow-local-files --pdf-notes
-        env:
-          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
-
-      - name: Build Marp Slides (Banco de Dados)
-        run: marp content/cursos/banco-de-dados/slides/index.md --pdf --output static/pdfs/banco-dados.pdf --allow-local-files --pdf-notes
-        env:
-          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v4
         with:
@@ -53,8 +32,11 @@ jobs:
       - name: Build Hugo Site
         run: hugo --minify
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          path: ./public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
