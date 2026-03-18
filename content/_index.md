@@ -11,11 +11,13 @@ Bem-vindo ao portal de cursos! Aqui você encontrará materiais de estudo para v
 ## Cursos Disponíveis
 
 ### 📊 [Banco de Dados](/cursos/banco-de-dados)
+
 - Modelagem de Dados
 - SQL e DDL
 - [Slides: Modelagem ER](/cursos/banco-de-dados/slides)
 
-### 💻 [Engenharia de Software](/cursos/engenharia-software) 
+### 💻 [Engenharia de Software](/cursos/engenharia-software)
+
 - Engenharia de Requisitos
 - Padrões de Projeto
 - [Slides: Requisitos](/cursos/engenharia-software/slides)
@@ -25,8 +27,7 @@ Bem-vindo ao portal de cursos! Aqui você encontrará materiais de estudo para v
 ## 📥 Downloads
 
 ### Slides em PDF
-- [Engenharia de Software - Requisitos](/pdfs/eng-software.pdf)
-- [Banco de Dados - Modelagem](/pdfs/banco-dados.pdf)
+*PDFs serão gerados automaticamente em breve*
 
 ---
 
