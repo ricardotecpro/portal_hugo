@@ -9,15 +9,15 @@ O projeto inclui um script de automação para facilitar a configuração do amb
 1. Abra o **PowerShell** como **Administrador** na raiz do projeto.
 2. Execute o script de configuração:
 
-  ```powershell
-  ./setup.ps1
-  ```
+```powershell
+./setup.ps1
+```
 
-  Este script irá:
+Este script irá:
 
-  - Instalar Hugo Extended, Node.js e Marp-CLI via Chocolatey.
-  - Gerar os PDFs dos slides em `static/pdfs/`.
-  - Iniciar o servidor local do Hugo em `http://localhost:1313/`.
+- Instalar Hugo Extended, Node.js e Marp-CLI via Chocolatey.
+- Gerar os PDFs dos slides em `static/pdfs/`.
+- Iniciar o servidor local do Hugo em `http://localhost:1313/`.
 
 ## 📁 Estrutura do projeto
 
@@ -63,15 +63,15 @@ Se houver falha por falta de permissões, abra o PowerShell como **Administrador
 1. Clique com o botão direito no menu Iniciar e selecione **Terminal (Administrador)** ou **PowerShell (Administrador)**.
 2. Navegue até a pasta do projeto:
 
-  ```powershell
-  cd "d:\SourceCode\REPOS\github.io\#hugo\projeto_hugo"
-  ```
+```powershell
+cd "d:\SourceCode\REPOS\github.io\#hugo\projeto_hugo"
+```
 
 3. Execute o script:
 
-  ```powershell
-  .\setup.ps1
-  ```
+```powershell
+.\setup.ps1
+```
 
 ### 2. Apenas iniciar o servidor (se o Hugo já estiver instalado)
 
