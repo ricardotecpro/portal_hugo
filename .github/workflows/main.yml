@@ -1,0 +1,52 @@
+name: Deploy Hugo Site with Marp Slides
+
+on:
+  push:
+    branches:
+      - main  # Altere para a sua branch principal (ex: master)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive  # Caso use o tema como submódulo
+          fetch-depth: 0
+
+      - name: Create PDF directory
+        run: mkdir -p static/pdfs
+
+      - name: Build Marp Slides (Engenharia de Software)
+        uses: marp-team/marp-cli-action@v3
+        with:
+          args: content/cursos/engenharia-software/slides/index.md --pdf --output static/pdfs/eng-software.pdf
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+
+      - name: Build Marp Slides (Banco de Dados)
+        uses: marp-team/marp-cli-action@v3
+        with:
+          args: content/cursos/banco-de-dados/slides/index.md --pdf --output static/pdfs/banco-dados.pdf
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build Hugo Site
+        run: hugo --minify
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

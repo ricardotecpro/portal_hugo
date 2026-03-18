@@ -1,0 +1,28 @@
+# Hugo Configuration for Course Portal
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'Portal de Cursos Computação'
+theme = 'relearn'
+
+[params]
+  editURL = ""
+  showNextPrev = true
+  # Color variants
+  themeVariant = ["relearn-light", "relearn-dark"]
+
+[taxonomies]
+  disciplina = 'disciplinas'
+  tecnologia = 'tecnologias'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # Required for Mermaid and HTML in Markdown
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+  [markup.highlight]
+    guessSyntax = true
+    lineNos = true
+    style = "monokai"
