@@ -2,72 +2,91 @@
 
 Este projeto é um portal de cursos escalável construído com o gerador de sites estáticos [Hugo](https://gohugo.io/), utilizando o tema [Relearn](https://mcshelby.github.io/hugo-theme-relearn/) para documentação, [Mermaid.js](https://mermaid.js.org/) para diagramas e [Marp](https://marp.app/) para apresentações de slides.
 
-## 🚀 Como Iniciar (Windows)
+## 🚀 Como iniciar no Windows
 
 O projeto inclui um script de automação para facilitar a configuração do ambiente.
 
-1.  Abra o **PowerShell** como Administrador na raiz do projeto.
-2.  Execute o script de configuração:
-    ```powershell
-    ./setup.ps1
-    ```
-    *Este script irá:*
-    - Instalar Hugo Extended, Node.js e Marp-CLI via Chocolatey.
-    - Gerar os PDFs dos slides em `static/pdfs/`.
-    - Iniciar o servidor local do Hugo (`http://localhost:1313/`).
+1. Abra o **PowerShell** como **Administrador** na raiz do projeto.
+2. Execute o script de configuração:
 
-## 📁 Estrutura do Projeto
+  ```powershell
+  ./setup.ps1
+  ```
 
-- `content/cursos/`: Contém as disciplinas organizadas por pastas (Leaf Bundles).
-  - `engenharia-software/`: Aula de Requisitos e slides integrados.
-  - `banco-de-dados/`: Aula de Modelagem ER e slides integrados.
-- `static/pdfs/`: Destino automático dos slides exportados em PDF.
-- `themes/relearn/`: Tema base para a interface do portal.
-- `hugo.toml`: Configuração central do site e variantes de cor.
+  Este script irá:
 
-## ✨ Funcionalidades Principais
+  - Instalar Hugo Extended, Node.js e Marp-CLI via Chocolatey.
+  - Gerar os PDFs dos slides em `static/pdfs/`.
+  - Iniciar o servidor local do Hugo em `http://localhost:1313/`.
 
-- **Diagramas In-line**: Suporte nativo a Mermaid.js para diagramas de classe, ER, sequencia, etc.
-- **Slides com Marp**: Crie apresentações profissionais usando apenas Markdown dentro das pastas de curso.
-- **Modo Dark/Light**: Seletor de variantes de cor integrado na barra lateral.
-- **Taxonomias**: Organização inteligente por `disciplina` e `tecnologia`.
+## 📁 Estrutura do projeto
 
-## 🛠️ Tecnologias Utilizadas
+- `content/cursos/`: contém as disciplinas organizadas por pastas (Leaf Bundles).
+  - `engenharia-software/`: aula de Requisitos e slides integrados.
+  - `banco-de-dados/`: aula de Modelagem ER e slides integrados.
+- `static/pdfs/`: destino automático dos slides exportados em PDF.
+- `themes/relearn/`: tema base para a interface do portal.
+- `hugo.toml`: configuração central do site e variantes de cor.
 
-- **Hugo Extended**: Gerador de site estático.
-- **Relearn Theme**: Layout focado em documentação e cursos.
-- **Marp-CLI**: Conversão de Markdown para apresentações PDF.
-- **Chocolatey**: Gerenciador de pacotes para Windows (instalação automatizada).
+## ✨ Funcionalidades principais
 
-## 📝 Adicionando Novo Conteúdo
+- **Diagramas in-line**: suporte nativo a Mermaid.js para diagramas de classe, ER, sequência e outros.
+- **Slides com Marp**: criação de apresentações em Markdown dentro das pastas de curso.
+- **Modo Dark/Light**: seletor de variantes de cor integrado na barra lateral.
+- **Taxonomias**: organização por `disciplina` e `tecnologia`.
+
+## 🛠️ Tecnologias utilizadas
+
+- **Hugo Extended**: gerador de site estático.
+- **Relearn Theme**: layout focado em documentação e cursos.
+- **Marp-CLI**: conversão de Markdown para apresentações em PDF.
+- **Chocolatey**: gerenciador de pacotes para Windows.
+
+## 📝 Adicionando novo conteúdo
 
 Para adicionar uma nova disciplina:
+
 1. Crie uma nova pasta em `content/cursos/minha-disciplina/`.
 2. Adicione um arquivo `_index.md` para a página principal da disciplina.
 3. Para slides, crie uma subpasta `slides/` com um arquivo `index.md` contendo o cabeçalho `marp: true`.
 
 ---
 
-Para iniciar o portal, você tem duas opções principais dependendo se já possui as ferramentas instaladas ou não:
+## ▶️ Formas de iniciar o portal
 
-1. Usando o Script de Configuração (Recomendado)
-Como o roteiro falhou por falta de permissões, você deve abrir o PowerShell como Administrador:
+Há três opções principais para iniciar o portal, dependendo do ambiente já configurado.
 
-Clique com o botão direito no menu Iniciar e selecione Terminal (Administrador) ou PowerShell (Administrador).
-Navegue até a pasta do projeto:
-powershell
-cd "d:\SourceCode\REPOS\github.io\#hugo\projeto_hugo"
-Execute o script:
-powershell
-.\setup.ps1
-2. Apenas Iniciar o Servidor (Se já tiver o Hugo)
-Se você já instalou o Hugo anteriormente ou quer apenas rodar o servidor após a primeira configuração, use:
+### 1. Usando o script de configuração (recomendado)
 
-powershell
+Se houver falha por falta de permissões, abra o PowerShell como **Administrador**:
+
+1. Clique com o botão direito no menu Iniciar e selecione **Terminal (Administrador)** ou **PowerShell (Administrador)**.
+2. Navegue até a pasta do projeto:
+
+  ```powershell
+  cd "d:\SourceCode\REPOS\github.io\#hugo\projeto_hugo"
+  ```
+
+3. Execute o script:
+
+  ```powershell
+  .\setup.ps1
+  ```
+
+### 2. Apenas iniciar o servidor (se o Hugo já estiver instalado)
+
+Se o Hugo já estiver instalado, execute:
+
+```powershell
 hugo server -D
-3. Iniciar via Node.js (Sem instalar o Hugo globalmente)
-Como detectamos que você tem o Node.js instalado, você pode rodar o servidor sem precisar de permissões de administrador para o Chocolatey:
+```
 
-powershell
+### 3. Iniciar via Node.js (sem instalar o Hugo globalmente)
+
+Se o Node.js já estiver instalado, é possível iniciar o servidor sem permissões administrativas:
+
+```powershell
 npx -y hugo-bin server -D
-Dica: Após iniciar, o site estará disponível em http://localhost:1313/. Basta abrir esse endereço no seu navegador.
+```
+
+> **Dica:** após iniciar, o site estará disponível em [http://localhost:1313/](http://localhost:1313/).
