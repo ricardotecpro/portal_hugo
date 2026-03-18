@@ -27,7 +27,8 @@ Bem-vindo ao portal de cursos! Aqui você encontrará materiais de estudo para v
 ## 📥 Downloads
 
 ### Slides em PDF
-*PDFs serão gerados automaticamente em breve*
+
+_PDFs serão gerados automaticamente em breve_
 
 ---
 
