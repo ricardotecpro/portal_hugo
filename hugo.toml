@@ -1,5 +1,5 @@
 # Hugo Configuration for Course Portal
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://ricardotecpro.github.io/projeto_hugo/'
 languageCode = 'en-us'
 title = 'Portal de Cursos Computação'
 theme = 'relearn'
