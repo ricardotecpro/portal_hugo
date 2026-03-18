@@ -3,7 +3,7 @@ name: Deploy Hugo Site with Marp Slides
 on:
   push:
     branches:
-      - main  # Altere para a sua branch principal (ex: master)
+      - main # Altere para a sua branch principal (ex: master)
   workflow_dispatch:
 
 permissions:
@@ -16,30 +16,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive  # Caso use o tema como submódulo
+          submodules: recursive # Caso use o tema como submódulo
           fetch-depth: 0
 
       - name: Create PDF directory
         run: mkdir -p static/pdfs
 
-      - name: Build Marp Slides (Engenharia de Software)
-        uses: marp-team/marp-cli-action@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          args: content/cursos/engenharia-software/slides/index.md --pdf --output static/pdfs/eng-software.pdf
+          node-version: "18"
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli chromium
+
+      - name: Build Marp Slides (Engenharia de Software)
+        run: marp content/cursos/engenharia-software/slides/index.md --pdf --output static/pdfs/eng-software.pdf --allow-local-files
         env:
-          CHROME_PATH: /usr/bin/google-chrome
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: false
 
       - name: Build Marp Slides (Banco de Dados)
-        uses: marp-team/marp-cli-action@v3
-        with:
-          args: content/cursos/banco-de-dados/slides/index.md --pdf --output static/pdfs/banco-dados.pdf
+        run: marp content/cursos/banco-de-dados/slides/index.md --pdf --output static/pdfs/banco-dados.pdf --allow-local-files
         env:
-          CHROME_PATH: /usr/bin/google-chrome
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: false
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           extended: true
 
       - name: Build Hugo Site
