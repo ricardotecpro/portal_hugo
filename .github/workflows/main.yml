@@ -39,6 +39,13 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Install Marp-CLI
+        run: npm install -g @marp-team/marp-cli
+      - name: Generate PDFs (Marp)
+        run: |
+          mkdir -p static/pdfs
+          marp content/cursos/engenharia-software/slides/index.md --pdf --output static/pdfs/eng-software.pdf
+          marp content/cursos/banco-de-dados/slides/index.md --pdf --output static/pdfs/banco-dados.pdf
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
