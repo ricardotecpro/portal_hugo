@@ -9,6 +9,7 @@ theme = 'relearn'
   showNextPrev = true
   # Color variants
   themeVariant = ["relearn-light", "relearn-dark"]
+  customStylesheet = "css/custom.css"
 
 [taxonomies]
   disciplina = 'disciplinas'

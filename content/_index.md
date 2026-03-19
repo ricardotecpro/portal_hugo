@@ -6,7 +6,7 @@ archetype: "home"
 
 Bem-vindo ao portal de cursos! Aqui você encontrará materiais de estudo para várias disciplinas da área de computação.
 
-## Cursos Disponíveis
+<div class="course-card">
 
 ### 📊 [Banco de Dados](/cursos/banco-de-dados)
 
@@ -14,11 +14,17 @@ Bem-vindo ao portal de cursos! Aqui você encontrará materiais de estudo para v
 - SQL e DDL
 - [Slides: Modelagem ER](/cursos/banco-de-dados/slides)
 
+</div>
+
+<div class="course-card">
+
 ### 💻 [Engenharia de Software](/cursos/engenharia-software)
 
 - Engenharia de Requisitos
 - Padrões de Projeto
 - [Slides: Requisitos](/cursos/engenharia-software/slides)
+
+</div>
 
 ---
 
