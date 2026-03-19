@@ -45,25 +45,12 @@ jobs:
           mkdir -p static/pdfs
           marp content/cursos/engenharia-software/slides/index.md --pdf --output static/pdfs/eng-software.pdf
           marp content/cursos/banco-de-dados/slides/index.md --pdf --output static/pdfs/banco-dados.pdf
-      - name: Debug Environment
-        run: |
-          echo "Hugo Version:"
-          hugo version
-          echo "Themes Directory:"
-          ls -R themes
-          echo "Hugo Environment:"
-          hugo env
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: America/Los_Angeles
-        run: |
-          hugo \
-            --gc \
-            --minify \
-            --verbose \
-            --baseURL "${{ steps.pages.outputs.base_url || '/' }}"
+        run: hugo --gc --minify --verbose --baseURL "${{ steps.pages.outputs.base_url || '/' }}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
