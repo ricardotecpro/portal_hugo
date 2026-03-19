@@ -5,7 +5,8 @@ resources/_gen/
 hugo_stats.json
 
 # Marp Build Output
-static/pdfs/
+# Manter PDFs no repositório para o build do GitHub Pages
+# static/pdfs/
 
 # Node/NPM
 node_modules/

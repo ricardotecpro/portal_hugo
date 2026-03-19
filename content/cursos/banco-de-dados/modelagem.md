@@ -5,8 +5,6 @@ disciplina: ["Banco de Dados"]
 tecnologia: ["SQL", "ERD"]
 ---
 
-# Modelagem Entidade-Relacionamento
-
 A modelagem ER é a base para a criação de bancos de dados relacionais robustos.
 
 ## Diagrama ER (Mermaid)

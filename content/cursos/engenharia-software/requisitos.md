@@ -5,8 +5,6 @@ disciplina: ["Engenharia de Software"]
 tecnologia: ["UML", "Java"]
 ---
 
-# Engenharia de Requisitos
-
 Nesta aula, exploraremos a captura e modelagem de requisitos, além de padrões de projeto fundamentais.
 
 ## Diagrama de Classes UML (Mermaid)
