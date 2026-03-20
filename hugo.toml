@@ -1,5 +1,5 @@
 baseURL = 'https://ricardotecpro.github.io/portal_hugo/'
-relativeURLs = true
+relativeURLs = false
 canonifyURLs = false
 languageCode = 'en-us'
 title = 'Portal de Cursos Computação'
