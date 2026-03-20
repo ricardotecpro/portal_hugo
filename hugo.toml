@@ -1,4 +1,4 @@
-baseURL = ''
+baseURL = 'https://ricardotecpro.github.io/portal_hugo/'
 relativeURLs = true
 canonifyURLs = false
 languageCode = 'en-us'
